@@ -1,4 +1,5 @@
-FROM node:19-alpine
+# stage 1
+FROM node:19-alpine as build
 
 # change into a folder called /app
 WORKDIR /app
@@ -23,4 +24,4 @@ COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off"]
+CMD ["nginx", "-g", "daemon off;"]
